@@ -1,2 +1,2 @@
 # Blog-MERN-STACK
-React App Sql node
+React App Sql nodejs
