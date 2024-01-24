@@ -20,15 +20,6 @@ const Home = () => {
     fetchData();
   }, [cat]);
 
-  // const editText = (text) => {
-  //   return text.substring(text.indexOf('>') + 1, text.lastIndexOf('<'));
-  // };
-
-  // const editText = (text) => {
-  //   const doc = new DOMParser().parseFromString(text, 'text/html');
-  //   return doc.body.textContent;
-  // };
-
   return (
     <div className="home">
       <div className="posts">
