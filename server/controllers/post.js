@@ -68,28 +68,6 @@ export const updatePost = (req, res) => {
   });
 };
 
-// export const updatePost = (req, res) => {
-//   const { title, desc, img, category } = req.body;
-
-//   const token = req.cookies.access_token;
-
-//   if (!token) return res.status(401).json('Not Authenticated!');
-
-//   jwt.verify(token, 'jwtkey', (err, userInfo) => {
-//     if (err) return res.status(500).json('Token is not valid');
-//   });
-
-//   const q = `UPDATE posts SET 'title' = ?,'desc' = ?, 'img' = ? , 'category' = ? WHERE id = ? AND user_id = ?`;
-
-//   const values = [title, desc, img, category];
-
-//   db.query(q, [...values, req.params.id, userInfo.id], (err, data) => {
-//     if (err) return res.status(500).json(err);
-
-//     return res.status(200).json('Post has been updated');
-//   });
-// };
-
 export const deletePost = (req, res) => {
   const token = req.cookies.access_token;
   if (!token) return res.status(401).json('Not Authenticated!');
