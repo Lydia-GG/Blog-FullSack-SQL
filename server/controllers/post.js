@@ -48,7 +48,7 @@ export const createPost = (req, res) => {
 };
 
 export const updatePost = (req, res) => {
-  const { title, desc, img, category } = req.body;
+  const { title, desc, img, category } = req.bod;
   const token = req.cookies.access_token;
   if (!token) return res.status(401).json('Not authenticated!');
 
