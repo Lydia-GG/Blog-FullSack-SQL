@@ -48,6 +48,7 @@ export const createPost = (req, res) => {
 };
 
 export const updatePost = (req, res) => {
+  const {title, desc, img, category,} = req.body
   const token = req.cookies.access_token;
   if (!token) return res.status(401).json('Not authenticated!');
 
@@ -58,11 +59,7 @@ export const updatePost = (req, res) => {
     const q =
       'UPDATE posts SET `title`=?,`desc`=?,`img`=?,`category`=? WHERE `id` = ? AND `user_id` = ?';
 
-    const values = [
-      req.body.title,
-      req.body.desc,
-      req.body.img,
-      req.body.category,
+    const values = [title, desc, img, category
     ];
 
     db.query(q, [...values, postId, userInfo.id], (err, data) => {
