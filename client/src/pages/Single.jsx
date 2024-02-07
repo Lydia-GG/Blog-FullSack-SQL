@@ -35,18 +35,14 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/posts/${postId}`);
+      await axios.delete(`http://localhost:8000/api/posts/${postId}`, {
+        withCredentials: true,
+      });
       navigate('/');
     } catch (err) {
       console.log(err);
     }
   };
-  // const handleUpdate = () => {
-  //   try {
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   return (
     <div className="singlePage">

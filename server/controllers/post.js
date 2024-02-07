@@ -74,13 +74,12 @@ export const deletePost = (req, res) => {
 
   jwt.verify(token, 'jwtkey', (err, userInfo) => {
     if (err) return res.status(500).json('Token is not valid');
-  });
+    const q = `DELETE FROM posts WHERE id = ? AND user_id = ?`;
 
-  const q = `DELETE FROM posts WHERE id = ? AND user_id = ?`;
+    db.query(q, [req.params.id, userInfo.id], (err, data) => {
+      if (err) return res.status(403).json('You can delete only your posts');
 
-  db.query(q, [req.params.id, userInfo.id], (err, data) => {
-    if (err) return res.status(403).json('You can delete only your posts');
-
-    return res.status(200).json('Post has been deleted');
+      return res.status(200).json('Post has been deleted');
+    });
   });
 };
