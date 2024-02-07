@@ -1,4 +1,4 @@
-import db from '../db/db.js';
+import db from '../../db/db.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
@@ -88,7 +88,7 @@ export const logout = (req, res) => {
   return res.status(200).json('user has been left');
 };
 
-// 
+//
 // export const ForgotPassword = (req, res) => {
 //   const { email } = req.body;
 

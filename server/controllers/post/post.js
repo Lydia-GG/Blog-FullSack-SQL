@@ -1,4 +1,4 @@
-import db from '../db/db.js';
+import db from '../../db/db.js';
 import jwt from 'jsonwebtoken';
 
 const editText = (text) => {

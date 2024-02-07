@@ -6,7 +6,7 @@ import {
   // ForgotPassword,
   // resetPassword,
   // changePassword,
-} from '../controllers/auth.js';
+} from '../controllers/auth/auth.js';
 const router = express.Router();
 
 router.post('/register', register);
