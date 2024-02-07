@@ -7,9 +7,7 @@ const uploadPhoto = async (req, res) => {
     const { path } = file;
     const url = await uploader(path);
 
-    res
-      .status(200)
-      .json({ message: 'images uploaded successfully', data: url });
+    res.status(200).json(url);
   } catch (err) {
     res.status(405).json({ err: 'failed to upload' });
   }

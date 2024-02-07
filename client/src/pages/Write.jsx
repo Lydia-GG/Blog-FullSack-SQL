@@ -17,7 +17,7 @@ const Write = () => {
   const upload = async () => {
     try {
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('image', file);
       const res = await axios.post(
         'http://localhost:8000/api/upload',
         formData,
@@ -25,6 +25,7 @@ const Write = () => {
           withCredentials: true,
         }
       );
+      console.log(res.data);
       return res.data;
     } catch (err) {
       console.log(err);
