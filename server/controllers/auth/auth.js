@@ -89,7 +89,7 @@ export const logout = (req, res) => {
 };
 
 // forget password
-// export const ForgotPassword = (req, res) => {
+export const ForgotPassword = (req, res) => {
 //   const { email } = req.body;
 
 //   const q = 'SELECT * FROM users WHERE email = ?';
