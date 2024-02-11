@@ -5,9 +5,11 @@ import authRoutes from './routes/auth.js';
 import photoRoutes from './routes/uploadPhoto.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 // import multer from 'multer';
 
 const app = express();
+const __dirname = path.resolve();
 
 // const corsOptions = {
 //   origin: 'http://localhost:3000',
@@ -42,10 +44,15 @@ app.use(cookieParser());
 //   const file = req.file;
 //   res.status(200).json(file);
 // });
+app.use(express.static(path.join(__dirname, './client/build')));
 
 app.use('/api/posts', postRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api', photoRoutes);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
 
 app.listen(8000, () => console.log(`server is running...`));
